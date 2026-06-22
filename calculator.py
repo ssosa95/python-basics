@@ -18,3 +18,5 @@ print(f"Result: {result}")
 
 # you want float for calculators to include precise 
 # numbers, integers only give you whole numbers
+# perhaps run a loop for number inputs as well in case
+# user inputs something invalid
