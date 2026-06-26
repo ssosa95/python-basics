@@ -117,15 +117,3 @@ for i in range(10):
         continue
     print(i) #prints only odd numbers in this case
 
-#build the task: store and print a list
-
-items = []
-
-for i in range(5):
-    item = input(f"Enter item {i + 1}: ")
-    items.append(item)
-print("\nYou entered:")
-for item in items:
-    print(f" - {item}")
-
-print(f"\nTotal items: {len(items)}")
