@@ -21,14 +21,14 @@ else:
 
 if day_of_the_week == "Wednesday" and price > 0:
     wednesday_price = 5
-    price_reasoning = price_reasoning * 5
+    #price_reasoning = price_reasoning * 5 #with final_price=wednesday_price, this is unnecessary
 else:
     wednesday_price = price
     price_reasoning = price_reasoning
 
 if is_member == "yes":
     member_price = price * 0.80
-    price_reasoning = price_reasoning * 100
+    #price_reasoning = price_reasoning * 100 #with final_price=member_price, this is unnecessary
 else:
     member_price = price
     price_reasoning = price_reasoning
@@ -58,7 +58,8 @@ elif price_reasoning == 3:
     print(f"Reasoning: You are between 18 and 64.")
 elif price_reasoning == 4:
     print(f"Reasoning: You have the senior discount.")
-elif final_price == wednesday_price:
+
+if final_price == wednesday_price:
     print(f"Reasoning: You are getting the Wednesday discount.")
 elif final_price == member_price:
     print(f"Reasoning: You are getting the member discount.")
@@ -85,3 +86,5 @@ else:
 #defaults to the Wednesday one if it is less than what someone might get with the membership
 #discount or it just applies the membership discount. The original method solved this
 #however.
+#There was a concatenation method but this current one is better where I made the final_price
+#variable reference either discount variable to decide which variable to print.

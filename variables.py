@@ -44,6 +44,6 @@ name = input("What is your name? ")
 print(f"Hello, {name}!")
 
 #input always returns a string so convert integers back to integers
-age_text = input("What is your age?")
+age_text = input("What is your age? ")
 age = int(age_text)
 print(f"Next year you will be {age + 1}!")

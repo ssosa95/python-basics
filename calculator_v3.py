@@ -59,7 +59,6 @@ while True:
     if x_input == "history":
         print("\n--- Session History ---")
         display_history(history)
-        
         continue                #continue skips the rest of the current iteration and goes back to the top of the loop, keeping the calculator running.
     x = float(x_input)
     operation = input("Operation (+, -, *, /): ")
@@ -70,6 +69,8 @@ while True:
     if result is not None:
         history.append(f"{x} {operation} {y} = {result}")
     
+print("\n--- Session History ---")
+display_history(history)
 print("Goodbye!")   
 
 

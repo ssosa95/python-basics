@@ -1,3 +1,11 @@
+# storage_monitor.py
+# CLI tool to monitor storage usage across multiple servers
+# Classifies each server as OK (<60%), WARNING (60-80%), or CRITICAL (>80%)
+# Outputs a summary with counts per status and average usage across all servers
+# Built: Week 1, Day 4
+# Known gaps: non-numeric input for server count or storage usage causes crash (fix Day 9)
+#             storage values outside 0-100% are accepted without validation
+
 servers = []
 storage = []
 counter_ok = 0
@@ -29,8 +37,8 @@ for i in range(len(servers)):
 
 for usage in storage:
     total_server_storage += usage
-total_counter = counter_ok + counter_warning + counter_critical
-average_counter = total_server_storage / total_counter
+
+average_counter = total_server_storage / server_count
 
 print(f"""
 Total servers monitored: {server_count}

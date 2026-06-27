@@ -1,7 +1,7 @@
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
+num1 = float(input("Enter the first number: ")) #crashes on letter input, need to add error handling for invalid input
+num2 = float(input("Enter the second number: ")) #crashes on letter input, need to add error handling for invalid input
 
-operation = input("Choose operation (+, -, *, /): ")
+operation = input("Choose operation (+, -, *, /): ") #stop program entirely if user inputs something other than the four operations, or add error handling to ask for input again
 
 if operation == "+":
     result = num1 + num2

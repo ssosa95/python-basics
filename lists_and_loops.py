@@ -114,6 +114,6 @@ for i in range(10):
 
 for i in range(10):
     if i % 2 == 0:
-        continue
+        continue  #continue skips the rest of the current iteration and goes back to the top of the loop, keeping the code running.
     print(i) #prints only odd numbers in this case
 
