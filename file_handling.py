@@ -56,7 +56,7 @@ with open ('output.txt', 'w') as file:
 
 # Appending to a File
 
-with open ('output.txt', 'a') as file:
+with open ('output.txt', 'a') as file:  # 'a' would be used in a log file, something that should never be overwritten
     file.write("This line was appended\n")
 
 

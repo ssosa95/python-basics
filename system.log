@@ -1,0 +1,8 @@
+2024-01-15 08:23:11 INFO Server started successfully
+2024-01-15 08:24:33 WARNING High memory usage detected on server-02
+2024-01-15 08:25:01 ERROR Connection timeout on port 8080
+2024-01-15 08:26:44 INFO Backup completed successfully
+2024-01-15 08:27:15 ERROR Disk space critical on server-04
+2024-01-15 08:28:02 WARNING CPU usage above 80% on server-01
+2024-01-15 08:29:30 INFO Scheduled maintenance starting
+2024-01-15 08:30:11 ERROR Failed to connect to database

@@ -37,3 +37,14 @@ with open('server_report_file.txt', 'w') as file:
         file.write(f" - {server}\n")
 
 print("\nReport written to server_report_file.txt")
+
+# File Paths
+
+# relative path — looks in current folder
+# open("sample.txt")
+
+# relative path — looks in a subfolder
+# open("logs/sample.txt")
+
+# absolute path — works regardless of where you run from
+# open("C:/Users/user/projects/python-basics/sample.txt")
