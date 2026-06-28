@@ -1,0 +1,5 @@
+server-01 online
+server-02 offline
+server-03 online
+server-04 offline
+server-05 online

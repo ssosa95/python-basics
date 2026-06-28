@@ -1,0 +1,8 @@
+SERVER STATUS REPORT
+====================
+Online servers: 3
+Offline servers: 2
+
+Offline servers:
+ - server-02
+ - server-04
