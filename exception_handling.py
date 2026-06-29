@@ -88,6 +88,8 @@ content = read_file('missing.txt')
 if content is not None:
     print(content)
 
+# Raising Your Own Exceptions
+
 def set_storage_threshold(value):
     if value < 0 or value > 100:
         raise ValueError(f"{value} is not a valid threshold. Must be between 0 and 100.")
@@ -97,4 +99,8 @@ try:
     threshold = set_storage_threshold(150) # not valid
 except ValueError as e:
     print(f"Configuration error: {e}")
-    
+
+# raise lets your functions signal that something is wrong in the same way 
+# Python's built-in functions do. 
+# You'll use this more once you're building larger systems.
+
