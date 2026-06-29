@@ -12,12 +12,16 @@ counter_ok = 0
 counter_warning = 0
 counter_critical = 0
 total_server_storage = 0
-
-server_count = int(input("Enter the number of servers to monitor: "))
-
+try:
+    server_count = int(input("Enter the number of servers to monitor: "))
+except ValueError:
+    print("That is not a valid input. Please enter a valid whole number.")
 for i in range(server_count):
     server = input("Write the server name: ")
-    storage_usage = int(input("How much of the server is being used? "))
+    try:
+        storage_usage = int(input("How much of the server is being used? "))
+    except ValueError:
+        print("That is not a valid inpit. Please enter a valid whole number.")
     servers.append(server)
     storage.append(storage_usage)
 

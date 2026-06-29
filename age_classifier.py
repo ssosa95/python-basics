@@ -1,5 +1,7 @@
-age = int(input(f"Enter your age: ")) # you want an integer, not a float because ages are whole numbers
-
+try:    
+    age = int(input(f"Enter your age: ")) # you want an integer, not a float because ages are whole numbers
+except ValueError:
+    print("That is not a valid age.")
 if age < 0:
     print(f"That is not a valid age!")   #nested everything in an else statement afterwards so the program doesn't tell me it is invalid but also gives me the other statements about voting and pension eligibility
 else:    

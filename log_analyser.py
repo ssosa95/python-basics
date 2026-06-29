@@ -45,10 +45,13 @@ def write_report(filepath, total_entries, infos, warnings, errors):
 def get_severity_count(log_list):
      return len(log_list)
 
-filepath = 'system.log'
-
-total_entries, infos, warnings, errors = parse_log(filepath)
-write_report(filepath, total_entries, infos, warnings, errors)
+log_filepath = 'system.log'
+report_filepath = 'log_report.txt'
+try:
+    total_entries, infos, warnings, errors = parse_log(log_filepath)
+except FileNotFoundError:
+     print(f"{log_filepath} was not found. Please enter a correct filepath.")
+write_report(report_filepath, total_entries, infos, warnings, errors)
 
 print("LOG ANALYSIS SUMMARY")
 print("====================")

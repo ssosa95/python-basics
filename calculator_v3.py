@@ -60,9 +60,13 @@ while True:
         print("\n--- Session History ---")
         display_history(history)
         continue                #continue skips the rest of the current iteration and goes back to the top of the loop, keeping the calculator running.
-    x = float(x_input)
-    operation = input("Operation (+, -, *, /): ")
-    y = float(input("Second number: "))
+    try:
+        x = float(x_input)
+        operation = input("Operation (+, -, *, /): ")
+        y = float(input("Second number: "))
+    except ValueError:
+        print("That is not a valid input. Please try again.")
+        continue # returns to the top of the program
     
     result = calculate(x, y, operation)
     display_result(x, y, operation, result)
