@@ -48,7 +48,7 @@ def validate_config(keys, values):
 def validate_port(keys, values):
     try:
         port_number = int(get_config_value(keys, values, 'port'))
-        if port_number > 0 and port_number < 65536:
+        if port_number > 0 and port_number < 65536:  # if 1 <= port_number <= 65535: cleaner way to write it
             return True
         print("Port out of range.")
         return False
@@ -71,20 +71,19 @@ if validate_config(keys, values):
         print(f"Port: {get_config_value(keys, values, 'port')}")
         print(f"Max connections: {get_config_value(keys, values, 'max_connections')}")
         print(f"Timeout: {get_config_value(keys, values, 'timeout')}")
-    else:
-        print(f"Port validation failed.")
+        while True:
+            search_key = input("\nEnter a config key to look up (or 'quit' to exit): ")
+            if search_key == "quit":
+                break
+            try:
+                result = get_config_value(keys, values, search_key)
+                if result is None:
+                    raise ValueError(f"Key '{search_key}' not found in config.")
+                print(f"{search_key} = {result}")
+            except ValueError as e:
+                print(f"Error: {e}")
+            else:
+                print(f"Port validation failed.")
+        
 else:
     print("Config validation failed. Please fix the config file.")
-
-
-while True:
-    search_key = input("\nEnter a config key to look up (or 'quit' to exit): ")
-    if search_key == "quit":
-        break
-    try:
-        result = get_config_value(keys, values, search_key)
-        if result is None:
-            raise ValueError(f"Key '{search_key}' not found in config.")
-        print(f"{search_key} = {result}")
-    except ValueError as e:
-        print(f"Error: {e}")
