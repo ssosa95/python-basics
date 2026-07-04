@@ -15,11 +15,10 @@ with open("user.json", "w") as file:  # write the updated dictionary back to the
     json.dump(data, file, indent=4)   # dump the updated dictionary to the file with indentation for readability
 
 
-""" Advanced method: read the file, update the dictionary, then write it back to the same file.
-with open("user.json", "r+") as file:
-    data = json.load(file)
-    data["last_seen"] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-    file.seek(0)
-    json.dump(data, file, indent=4)
-    file.truncate()
-"""
+# Advanced method: read the file, update the dictionary, then write it back to the same file.
+#with open("user.json", "r+") as file:
+#    data = json.load(file)
+#    data["last_seen"] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+#    file.seek(0)
+#    json.dump(data, file, indent=4)
+#    file.truncate()

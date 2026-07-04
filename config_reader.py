@@ -17,18 +17,11 @@ def read_config(filepath):
     
 
 def get_config_value(keys, values, target_key):  
-    for key in range(len(keys)):                            
-        if keys[key] == target_key:               #if target_key in keys:
-            return values[key]                    #   return values[keys.index(target_key)]
-                                                  #return None
- 
+    if target_key in keys:                            
+        return values[keys.index(target_key)]
+                               
     return None
  
- # the commented out code works and is cleaner, not needing a loop, 
- # but I wanted to try a different approach using a for loop and indexing
-
-        
-    
     
 
 def validate_config(keys, values):
@@ -48,7 +41,7 @@ def validate_config(keys, values):
 def validate_port(keys, values):
     try:
         port_number = int(get_config_value(keys, values, 'port'))
-        if port_number > 0 and port_number < 65536:  # if 1 <= port_number <= 65535: cleaner way to write it
+        if 1 <= port_number <= 65535:  
             return True
         print("Port out of range.")
         return False
@@ -63,27 +56,27 @@ def validate_port(keys, values):
 filepath = 'server_config.txt'
 
 keys, values = read_config(filepath)
-
-if validate_config(keys, values):
-    if validate_port(keys, values):
-        print("Config loaded successfully.")
-        print(f"Hostname: {get_config_value(keys, values, 'hostname')}")
-        print(f"Port: {get_config_value(keys, values, 'port')}")
-        print(f"Max connections: {get_config_value(keys, values, 'max_connections')}")
-        print(f"Timeout: {get_config_value(keys, values, 'timeout')}")
-        while True:
-            search_key = input("\nEnter a config key to look up (or 'quit' to exit): ")
-            if search_key == "quit":
-                break
-            try:
-                result = get_config_value(keys, values, search_key)
-                if result is None:
-                    raise ValueError(f"Key '{search_key}' not found in config.")
-                print(f"{search_key} = {result}")
-            except ValueError as e:
-                print(f"Error: {e}")
-            else:
-                print(f"Port validation failed.")
-        
-else:
-    print("Config validation failed. Please fix the config file.")
+if __name__ == "__main__":
+    if validate_config(keys, values):
+        if validate_port(keys, values):
+            print("Config loaded successfully.")
+            print(f"Hostname: {get_config_value(keys, values, 'hostname')}")
+            print(f"Port: {get_config_value(keys, values, 'port')}")
+            print(f"Max connections: {get_config_value(keys, values, 'max_connections')}")
+            print(f"Timeout: {get_config_value(keys, values, 'timeout')}")
+            while True:
+                search_key = input("\nEnter a config key to look up (or 'quit' to exit): ")
+                if search_key == "quit":
+                    break
+                try:
+                    result = get_config_value(keys, values, search_key)
+                    if result is None:
+                        raise ValueError(f"Key '{search_key}' not found in config.")
+                    print(f"{search_key} = {result}")
+                except ValueError as e:
+                    print(f"Error: {e}")
+                else:
+                    print(f"Port validation failed.")
+            
+    else:
+        print("Config validation failed. Please fix the config file.")

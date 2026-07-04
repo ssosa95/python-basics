@@ -26,6 +26,7 @@ if __name__ == "__main__":
                 print(f"{keys}: {value}")
         else:
             print(f"{sys.argv[1]} is not a valid directory.")
+            sys.exit(1)
     else:
         info = get_system_info()
         for keys, value in info.items():
