@@ -21,7 +21,9 @@ print(sys.version_info)
 
 print(f"Python version: {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
 
-print(o.name)
+print(o.name)  # operating system name, in this case 'posix' for Linux and macOS, 'nt' for Windows
+print(p.system()) # operating system name, in this case 'Linux', 'Darwin' for macOS, 'Windows' for Windows
+print(p.release()) # operating system version
 
 # exercise
 print(sys.argv)
