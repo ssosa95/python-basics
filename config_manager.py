@@ -18,29 +18,7 @@ default_config = {
     "language": "english",
     "keyboard": "italian"
 }
-if __name__ == "__main__":
-    if len(sys.argv) > 2:
-        if o.path.exists(filename):
-            config_data = read_config_file(filename)
-            config_data[sys.argv[1]] = sys.argv[2]
-            create_config_file(filename, config_data)
-            print(f"Updated {sys.argv[1]} to {sys.argv[2]}.") 
-        else:
-            print(f"{filename} does not exist. Posting default configuration.")
-            create_config_file(filename, default_config)
-            config_data = read_config_file(filename)
-            config_data[sys.argv[1]] = sys.argv[2]
-            create_config_file(filename, config_data) 
-            print("Created default configuration and updated the specified setting.")
-    else:
-        if not o.path.exists(filename):
-            create_config_file(filename, default_config)
-        config_data = read_config_file(filename)
-        for key, value in config_data.items():
-            print(f"{key}: {value}")
 
-
-"""
 if __name__ == "__main__":
     if len(sys.argv) > 2:
         if not o.path.exists(filename):
@@ -55,4 +33,3 @@ if __name__ == "__main__":
         config_data = read_config_file(filename)
         for key, value in config_data.items():
             print(f"{key}: {value}")
-"""
