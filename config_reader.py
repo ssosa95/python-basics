@@ -53,10 +53,11 @@ def validate_port(keys, values):
         return False
 
 
-filepath = 'server_config.txt'
 
-keys, values = read_config(filepath)
 if __name__ == "__main__":
+    filepath = 'server_config.txt'
+
+    keys, values = read_config(filepath)
     if validate_config(keys, values):
         if validate_port(keys, values):
             print("Config loaded successfully.")
@@ -75,8 +76,8 @@ if __name__ == "__main__":
                     print(f"{search_key} = {result}")
                 except ValueError as e:
                     print(f"Error: {e}")
-                else:
-                    print(f"Port validation failed.")
+        else:
+            print(f"Port validation failed.")
             
     else:
         print("Config validation failed. Please fix the config file.")
