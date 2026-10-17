@@ -1,4 +1,5 @@
 import sys
+from datetime import datetime
 
 def parse_log(filepath):    
     total_entries = []
@@ -10,6 +11,8 @@ def parse_log(filepath):
         for line in file:
             line = line.strip()
             parts = line.split(" ", 3)
+            if len(parts) < 4:
+                continue
             date = parts[0]
             time = parts[1]
             status = parts[2]
@@ -41,8 +44,11 @@ def write_report(filepath, total_entries, infos, warnings, errors):
                 file.write("Error entries requiring attention:\n")
                 for i in range(len(errors)):
                     file.write(f"- {errors[(i)]}\n")
+        now = datetime.now()
+        formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
+        
         with open('system.log', 'a') as file:
-            file.write("2024-01-15 08:31:00 INFO Log analyzed successfully\n")
+            file.write(f"{formatted_date} INFO Log analyzed successfully\n")
 
 def get_severity_count(log_list):
      return len(log_list)
