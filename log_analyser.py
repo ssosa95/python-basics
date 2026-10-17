@@ -1,3 +1,5 @@
+import sys
+
 def parse_log(filepath):    
     total_entries = []
     infos = []
@@ -45,24 +47,24 @@ def write_report(filepath, total_entries, infos, warnings, errors):
 def get_severity_count(log_list):
      return len(log_list)
 
-log_filepath = 'system.log'
-report_filepath = 'log_report.txt'
-try:
-    total_entries, infos, warnings, errors = parse_log(log_filepath)
-except FileNotFoundError:
-     print(f"{log_filepath} was not found. Please enter a correct filepath.")
-write_report(report_filepath, total_entries, infos, warnings, errors)
 
-print("LOG ANALYSIS SUMMARY")
-print("====================")
-print(f"Total entries: {get_severity_count(total_entries)}")
-print(f"Number of INFO: {get_severity_count(infos)}")
-print(f"Number of WARNING: {get_severity_count(warnings)}")
-print(f"Number of ERROR: {get_severity_count(errors)}")
-if len(errors) > 0:
-   print("Error entries requiring attention:")
-   for i in range(len(errors)):
-        print(f"- {errors[(i)]}")
+if __name__ == "__main__":
+    log_filepath = 'system.log'
+    report_filepath = 'log_report.txt'
+    try:
+        total_entries, infos, warnings, errors = parse_log(log_filepath)
+    except FileNotFoundError:
+        print(f"{log_filepath} was not found. Please enter a correct filepath.")
+        sys.exit(1)
+    write_report(report_filepath, total_entries, infos, warnings, errors)
 
-
-
+    print("LOG ANALYSIS SUMMARY")
+    print("====================")
+    print(f"Total entries: {get_severity_count(total_entries)}")
+    print(f"Number of INFO: {get_severity_count(infos)}")
+    print(f"Number of WARNING: {get_severity_count(warnings)}")
+    print(f"Number of ERROR: {get_severity_count(errors)}")
+    if len(errors) > 0:
+        print("Error entries requiring attention:")
+        for i in range(len(errors)):
+                print(f"- {errors[(i)]}")
